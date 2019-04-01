@@ -1,11 +1,14 @@
 <template>
     <div class="mall">
-        <h2>mall</h2>
+        <MallTop></MallTop>
     </div>
 </template>
 <script>
+import MallTop from './malltop/index.vue'
 export default {
-    
+    components:{
+        MallTop
+    }
 }
 </script>
 <style lang="scss" scoped>
