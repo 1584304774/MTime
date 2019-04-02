@@ -63,7 +63,6 @@ html {
 }
 
 .nav {
-  background: red;
   width: 100%;
   height: 0.96rem;
   ul {
@@ -78,6 +77,10 @@ html {
     width: 25%;
     float: left;
     list-style: none;
+    font-weight: 900;
+    .router-link-active {
+      color: #1e7dd7;
+    }
     a {
       display: block;
       height: 100%;
@@ -85,8 +88,9 @@ html {
       text-align: center;
       line-height: 0.96rem;
       color: #333;
+
       span {
-        font-size: 0.38rem;
+        font-size: 0.31rem;
       }
     }
   }
