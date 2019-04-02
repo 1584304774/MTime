@@ -10,10 +10,10 @@
       </div>
       <div class="swiper-pagination"></div>
     </div>
+    
   </div>
 </template>
 <script>
-
 import Swiper from "swiper";
 import "../../../../node_modules/swiper/dist/css/swiper.min.css";
 export default {
@@ -30,18 +30,23 @@ export default {
   mounted() {
     new Swiper(this.$refs.swiperWrapper, {
       autoplay: true,
-      loop: true
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination"
+      }
     });
   }
 };
 </script>
 <style lang="scss" scoped>
+
 .swiper-container {
   width: 100%;
   height: 4rem;
-  .swiper-wrapper .swiper-slide a img{
-      width: 7.5rem;
-      height: 4rem;
+
+  .swiper-wrapper .swiper-slide a img {
+    width: 7.5rem;
+    height: 4rem;
   }
 }
 </style>
