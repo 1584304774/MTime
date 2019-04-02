@@ -36,9 +36,17 @@
 </template>
 
 <script>
+import Vuex from 'vuex'
 export default {
   name: "shop-top",
-  props: {}
+  created() {
+    this.getCityList();
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getCityList:"find/getActionsCityList"
+    })
+  },
 };
 </script>
 
