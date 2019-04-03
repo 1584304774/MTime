@@ -2,19 +2,19 @@
   <div class="mall_trans">
     <div class="mall_starwar_bglist">
       <div class="mall_starwar_bglist_top">
-        <img :src="src1">
+        <img :src="topicTrans.backgroupImage">
       </div>
       <div class="mall_starwar_bglist_btm">
-        <h4>{{titleh4}}</h4>
-        <h3>{{titleh3}}</h3>
+        <h4>{{topicTrans.titleEn}}</h4>
+        <h3>{{topicTrans.titleCn}}</h3>
         <ul>
-          <li v-for="(item,index) in imgs" :key="index">
+          <li v-for="(item,index) in topicTrans.subList" :key="index">
             <a href="JavaScript:;">
-              <img :src="item.src2">
-              <span>{{item.titlespan}}</span>
+              <img :src="item.image">
+              <span>{{item.title}}</span>
               <em>
                 ￥
-                <b>{{item.titleb}}</b>
+                <b></b>
               </em>
             </a>
           </li>
@@ -30,52 +30,21 @@
   </div>
 </template>
 <script>
+import Vuex from 'vuex';
 export default {
-  data() {
-    return {
-      src1:
-        "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F08%2F01%2F155553.37939590.jpg&width=640&height=253&clipType=4",
-      titleh4: "Transformers ",
-      titleh3: "变形金刚",
-      imgs: [
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F04%2F27%2F143616.88909455_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "变形金刚Logo刺绣T恤",
-          titleb: "99"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F05%2F25%2F174631.15384087_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "汽车人酷炫轮胎充电宝",
-          titleb: "169"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F05%2F09%2F102957.89297411_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "变形金刚5 博派黑金马克杯",
-          titleb: "79"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F05%2F09%2F112038.84105626_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "变形金刚5 擎天柱黑科技笔记本",
-          titleb: "79"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F05%2F18%2F141759.46017361_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "擎天柱限量蓝牙音箱",
-          titleb: "1499"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F05%2F09%2F191347.51739824_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "汽车人手机支架充电宝",
-          titleb: "16"
-        }
-      ]
-    };
+ 
+  created() {
+    this.getTopicTrans();
+  },
+  computed: {
+    ...Vuex.mapState({
+      topicTrans: state => state.Mall.topicTrans
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getTopicTrans: "Mall/getTopicTrans"
+    })
   }
 };
 </script>

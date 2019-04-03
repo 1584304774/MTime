@@ -2,19 +2,19 @@
   <div class="mall_warcraft">
     <div class="mall_starwar_bglist">
       <div class="mall_starwar_bglist_top">
-        <img :src="src1">
+        <img :src="topicwarcraft.backgroupImage">
       </div>
       <div class="mall_starwar_bglist_btm">
-        <h4>{{titleh4}}</h4>
-        <h3>{{titleh3}}</h3>
+        <h4>{{topicwarcraft.titleEn}}</h4>
+        <h3>{{topicwarcraft.titleCn}}</h3>
         <ul>
-          <li v-for="(item,index) in imgs" :key="index">
+          <li v-for="(item,index) in topicwarcraft.subList" :key="index">
             <a href="JavaScript:;">
-              <img :src="item.src2">
-              <span>{{item.titlespan}}</span>
+              <img :src="item.image">
+              <span>{{item.title}}</span>
               <em>
                 ￥
-                <b>{{item.titleb}}</b>
+                <b></b>
               </em>
             </a>
           </li>
@@ -30,52 +30,21 @@
   </div>
 </template>
 <script>
+import Vuex from 'vuex';
 export default {
-  data() {
-    return {
-      src1:
-        "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F07%2F20%2F152624.26499795.jpg&width=640&height=253&clipType=4",
-      titleh4: "Warcraft",
-      titleh3: "魔兽",
-      imgs: [
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fgoods%2F2016%2F05%2F09%2F112400.27082418_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "奥格瑞姆1:9珍藏模型",
-          titleb: "1299"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fgoods%2F2016%2F05%2F15%2F215745.56521570_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "毁灭之锤1:6模型",
-          titleb: "299"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F08%2F11%2F185646.84580015_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "杜隆坦4.25英寸可动人偶",
-          titleb: "99"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fgoods%2F2016%2F04%2F22%2F190130.93992965_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "魔兽热血LOGO阵营T恤",
-          titleb: "99"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fgoods%2F2016%2F05%2F25%2F114213.76555998_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "联盟狮头3D立体背包",
-          titleb: "499"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fgoods%2F2016%2F04%2F25%2F184128.84686552_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "联盟部落logo便携充电宝",
-          titleb: "15"
-        }
-      ]
-    };
+  
+created() {
+    this.getTopicWarCraft();
+  },
+  computed: {
+    ...Vuex.mapState({
+      topicwarcraft: state => state.Mall.topicwarcraft
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getTopicWarCraft: "Mall/getTopicWarCraft"
+    })
   }
 };
 </script>
