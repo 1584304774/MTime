@@ -12,18 +12,18 @@
     </li>
 
     <ul class="find-list">
-      <li>
+      <li v-for="(item,index) in movieList" :key="index">
         <div class="npic">
           <a href="##">
             <img
               class="img_box"
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F04%2F01%2F193333.89318956.jpg&width=150&height=150&clipType="
+              :src="item.image"
             >
           </a>
         </div>
         <div class="newstxt td">
           <dl>
-            <dt>《权力的游戏》将推出幕后纪录片</dt>
+            <dt>{{item.title}}</dt>
             <dd>
               <time>10小时前</time>
               <b>评论 2</b>
@@ -36,17 +36,23 @@
 </template>
 
 <script>
-import Vuex from 'vuex'
+import Vuex from "vuex";
 export default {
   name: "shop-top",
   created() {
     this.getCityList();
+    console.log(this.movieList)
   },
   methods: {
     ...Vuex.mapActions({
-      getCityList:"find/getActionsCityList"
+      getCityList: "find/getActionsCityList"
     })
   },
+  computed: {
+    ...Vuex.mapState({
+      movieList: state => state.find.movieList
+    })
+  }
 };
 </script>
 
@@ -110,16 +116,16 @@ export default {
         }
         dd {
           color: #999;
-          margin-top: .1678rem;
-          padding-top: .18rem;
-          padding-bottom: .048rem;
+          margin-top: 0.1678rem;
+          padding-top: 0.18rem;
+          padding-bottom: 0.048rem;
           time {
-            margin-right: .90234rem;
-            font-size: .3rem;
+            margin-right: 0.90234rem;
+            font-size: 0.3rem;
           }
           b {
             font-weight: normal;
-            font-size: .3rem;
+            font-size: 0.3rem;
           }
         }
       }
