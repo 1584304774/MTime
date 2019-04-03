@@ -45,12 +45,12 @@ export default {
   },
   methods: {
     ...Vuex.mapActions({
-      getCityList: "find/getActionsCityList"
+      getCityList: "Find/getActionsCityList"
     })
   },
   computed: {
     ...Vuex.mapState({
-      movieList: state => state.find.movieList
+      movieList: state => state.Find.movieList
     })
   }
 };
