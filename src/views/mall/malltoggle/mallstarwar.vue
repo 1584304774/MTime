@@ -2,19 +2,19 @@
   <div class="mall_starwar">
     <div class="mall_starwar_bglist">
       <div class="mall_starwar_bglist_top">
-        <img :src="src1">
+        <img :src="topicstarwar.backgroupImage">
       </div>
       <div class="mall_starwar_bglist_btm">
-        <h4>{{titleh4}}</h4>
-        <h3>{{titleh3}}</h3>
+        <h4>{{topicstarwar.titleEn}}</h4>
+        <h3>{{topicstarwar.titleCn}}</h3>
         <ul>
-          <li v-for="(item,index) in imgs" :key="index">
+          <li v-for="(item,index) in topicstarwar.subList" :key="index">
             <a href="JavaScript:;">
-              <img :src="item.src2">
-              <span>{{item.titlespan}}</span>
+              <img :src="item.image">
+              <span>{{item.title}}</span>
               <em>
                 ￥
-                <b>{{item.titleb}}</b>
+                <b></b>
               </em>
             </a>
           </li>
@@ -30,52 +30,20 @@
   </div>
 </template>
 <script>
+import Vuex from "vuex";
 export default {
-  data() {
-    return {
-      src1:
-        "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F07%2F20%2F155300.52298962.jpg&width=640&height=253&clipType=4",
-      titleh4: "Star Wars",
-      titleh3: "星球大战",
-      imgs: [
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F05%2F04%2F110813.63942368_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "星球大战LOGO款马克杯",
-          titleb: "69"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F05%2F22%2F181803.82756955_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "星球大战 Q萌形象T恤",
-          titleb: "109"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2016%2F12%2F26%2F154545.38326127_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "Hot toys侠盗一号 琴·厄索1:6人偶",
-          titleb: "1380"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F05%2F23%2F181151.45952224_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "星球大战长飘带棒球帽",
-          titleb: "69"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fgoods%2F2015%2F12%2F20%2F214711.91261972_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "星球大战 暴风兵炫酷3D背包",
-          titleb: "399"
-        },
-        {
-          src2:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2016%2F12%2F08%2F144325.16451236_600X600X1.jpg&width=196&height=196&clipType=4",
-          titlespan: "星球大战 风暴兵3D手机壳",
-          titleb: "45"
-        }
-      ]
-    };
+  created() {
+    this.getTopicStarWar();
+  },
+  computed: {
+    ...Vuex.mapState({
+      topicstarwar: state => state.Mall.topicstarwar
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getTopicStarWar: "Mall/getTopicStarWar"
+    })
   }
 };
 </script>

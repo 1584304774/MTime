@@ -2,19 +2,19 @@
   <div class="mall_league">
     <div class="mall_starwar_bglist">
       <div class="mall_starwar_bglist_top">
-        <img :src="src1">
+        <img :src="topicLeague.backgroupImage">
       </div>
       <div class="mall_starwar_bglist_btm">
-        <h4>{{titleh4}}</h4>
-        <h3>{{titleh3}}</h3>
+        <h4>{{topicLeague.titleEn}}</h4>
+        <h3>{{topicLeague.titleCn}}</h3>
         <ul>
-          <li v-for="(item,index) in imgs" :key="index">
+          <li v-for="(item,index) in topicLeague.subList" :key="index">
             <a href="JavaScript:;">
-              <img :src="item.src2">
-              <span>{{item.titlespan}}</span>
+              <img :src="item.image">
+              <span>{{item.title}}</span>
               <em>
                 ￥
-                <b>{{item.titleb}}</b>
+                <b></b>
               </em>
             </a>
           </li>
@@ -30,52 +30,21 @@
   </div>
 </template>
 <script>
+import Vuex from 'vuex';
 export default {
-  data() {
-    return {
-      src1:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F08%2F01%2F155611.53476727.jpg&width=640&height=253&clipType=4",
-          titleh4: "Justice League ",
-          titleh3: "正义联盟",
-          imgs: [
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F07%2F27%2F143439.62420403_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "正义联盟迷你人偶套装",
-              titleb: "598"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F11%2F02%2F142140.22636262_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "蝙蝠侠战车充电宝",
-              titleb: "188"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F10%2F09%2F153449.51761779_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "正义联盟超人马克杯",
-              titleb: "79"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F10%2F24%2F172530.89551431_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "神奇女侠Q版硅胶手机壳",
-              titleb: "69"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F10%2F19%2F170556.50623734_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "正义联盟 Q萌钥匙扣",
-              titleb: "25"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2017%2F11%2F06%2F175649.74984826_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "暗黑蝙蝠侠笔记本",
-              titleb: "49"
-            }
-          ]
-    };
+
+   created() {
+    this.getTopicLeague();
+  },
+  computed: {
+    ...Vuex.mapState({
+      topicLeague: state => state.Mall.topicLeague
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getTopicLeague: "Mall/getTopicLeague"
+    })
   }
 };
 </script>

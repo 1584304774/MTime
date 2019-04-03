@@ -1,50 +1,27 @@
 <template>
   <div class="mall_list">
-    <a href="javascript:;" v-for="(item,index) in message" :key="index">
-        <img :src="item.src">
-        <em>{{item.title}}</em>
+    <a href="javascript:;" v-for="(item,index) in navigatorIcon" :key="index">
+        <img :src="item.image">
+        <em>{{item.iconTitle}}</em>
     </a>
   </div>
 </template>
 <script>
+import Vuex from 'vuex';
+import { stat } from 'fs';
 export default {
-  data() {
-    return {
-      message: [
-          {
-              src:'https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161133.99290860.jpg',
-              title:'模玩'
-          },
-          {
-              src:'https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161141.82690725.jpg',
-              title:'数码'
-          },
-          {
-              src:'https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161148.25620959.jpg',
-              title:'服饰'
-          },
-          {
-              src:'https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161155.82939104.jpg',
-              title:'家居'
-          },
-          {
-              src:'https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161224.10155577.jpg',
-              title:'星战'
-          },
-          {
-              src:'https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161315.97010262.jpg',
-              title:'漫威'
-          },
-          {
-              src:'https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161325.50615572.jpg',
-              title:'蝙超'
-          },
-          {
-              src:'https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F02%2F07%2F161342.70896250.jpg',
-              title:'全部'
-          }
-      ]
-    };
+  created(){
+    this.getNavigatorIcon();
+  },
+  computed:{
+    ...Vuex.mapState({
+      navigatorIcon:state=>state.Mall.navigatorIcon
+    })
+  },
+  methods:{
+    ...Vuex.mapActions({
+      getNavigatorIcon:'Mall/getNavigatorIcon'
+    })
   }
 };
 </script>
