@@ -7,7 +7,7 @@
             <a href="https://applink.mtime.cn/?applinkData=%7B%22handleType%22%3A%22jumpPage%22%2C%22pageType%22%3A%22home%22%7D&amp;timeout=0&amp;t=1554089568403" class=" table_vh_c" id="downloadUrl" pan="M14_TOP_DOWNLOAD">
                 <div class="linkTo">
                     <div class="linkTo_pic">
-                        <img src="../../../public/img/share07.png">
+                        <img src="../../assets/index/share07.png">
                     </div>
                     <div class="linkTo_des">
                         <span>您已收到150元新人红包</span>

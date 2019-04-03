@@ -2,7 +2,7 @@
   <div class="home_nav">
     <ul>
       <span>
-        <img src="../../../public/img/logo_mtime.png">
+        <img src="../../assets/index/logo_mtime.png">
       </span>
       <router-link tag="li" v-for="(item,index) in nav" :key="index" :to="item.path">{{item.title}}</router-link>
       <router-link tag="li" to="/mine" class="iconfont">&#xe62b;</router-link>

@@ -12,3 +12,4 @@ module.exports = {//跨域配置项，使用的是中间件http-proxy-middleware
         }
     }
 }
+//http://m.mtime.cn/Service/callback.mi/Showtime/LocationMovies.api?locationId=290&t=2019422144314703
