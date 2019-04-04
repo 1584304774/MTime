@@ -3,23 +3,23 @@
     <div class="consulting">
       <b>今日热点</b>
     </div>
-    <ul class="hotPoints">
-      <li nid="1589347" isgallary="false">
+    <ul class="hotPoints" >
+      <li nid="itmes.id" v-for="(itmes,index) in moviesList">
         <div class="table">
           <div class="todaypic">
             <router-link to="#!/news/movie/1589347/">
               <img
                 class="img_box"
-                src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F02%2F26%2F161907.62760947.jpg&amp;width=225&amp;height=156&amp;clipType=4"
+                :src="itmes.img"
               >
             </router-link>
           </div>
           <div class="todaytxt td">
             <h2>
-              <router-link to="#!/news/movie/1589347/">阿方索独家谈《罗马》</router-link>
+              <router-link to="#!/news/movie/1589347/">{{itmes.title}}</router-link>
             </h2>
             <p>
-              <span>“时间才能检验电影”</span>
+              <span>{{itmes.desc}}</span>
             </p>
             <p>
               <time>2019-02-26 17:50:09</time>
@@ -32,7 +32,24 @@
 </template>
 
 <script>
-export default {};
+import Vuex from "vuex";
+
+export default {
+  created() {
+    this.getActionsList();
+  },
+  computed: {
+    ...Vuex.mapState({
+      moviesList : state => state.Home.moviesList
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getActionsList: "Home/getActionsList"
+    })
+  },
+
+};
 </script>
 
 <style lang="scss" scoped>
@@ -57,12 +74,14 @@ export default {};
   
   .table {
     width: 6.78rem;
-    height: 1.6rem;
+    height: 2.4rem;
     display: flex;
     margin: 0 auto;
+    margin-bottom: .5rem;
     justify-content: space-between;
-    position: relative;
+    border-bottom: 2px solid #c3c3c3;
   }
+  
   .todaytxt{
     position: absolute;
     right: .5rem;
