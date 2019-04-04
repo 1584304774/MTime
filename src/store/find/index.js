@@ -3,15 +3,19 @@ import {
 } from '@/api/api.js'
 export default {
     state: {
-        nav: ['首页', '预告片', '排行榜', '影评'],
+        movieList: []
     },
     mutations: {
+        getMutationsCityList(state,params){
+            state.movieList = params
+            console.log(state.movieList)
 
+        }
     },
     actions: {
-        async getActionsCityList() {
+        async getActionsCityList({commit}) {
             let data = await getCityList()
-            console.log(data)
+            commit('getMutationsCityList',data.newsList)
         }
 
     },

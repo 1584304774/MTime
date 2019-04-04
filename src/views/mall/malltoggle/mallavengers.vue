@@ -2,19 +2,19 @@
   <div class="mall_avengers">
     <div class="mall_starwar_bglist">
       <div class="mall_starwar_bglist_top">
-        <img :src="src1">
+        <img :src="topicavengers.backgroupImage">
       </div>
       <div class="mall_starwar_bglist_btm">
-        <h4>{{titleh4}}</h4>
-        <h3>{{titleh3}}</h3>
+        <h4>{{topicavengers.titleEn}}</h4>
+        <h3>{{topicavengers.titleCn}}</h3>
         <ul>
-          <li v-for="(item,index) in imgs" :key="index">
+          <li v-for="(item,index) in topicavengers.subList" :key="index">
             <a href="JavaScript:;">
-              <img :src="item.src2">
-              <span>{{item.titlespan}}</span>
+              <img :src="item.image">
+              <span>{{item.title}}</span>
               <em>
                 ￥
-                <b>{{item.titleb}}</b>
+                <b></b>
               </em>
             </a>
           </li>
@@ -30,52 +30,21 @@
   </div>
 </template>
 <script>
+import Vuex from 'vuex';
 export default {
-  data() {
-    return {
-      src1:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F08%2F01%2F155534.37824157.jpg&width=640&height=253&clipType=4",
-          titleh4: "Avengers",
-          titleh3: "复仇者联盟",
-          imgs: [
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F06%2F15%2F172357.35959099_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "黑豹款平沿棒球帽",
-              titleb: "69"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F05%2F04%2F112022.58516910_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "漫威LOGO便携移动电源",
-              titleb: "188"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F05%2F02%2F185315.58725305_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "漫威LOGO时尚双肩背包",
-              titleb: "139"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F04%2F10%2F113715.73012990_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "复仇者联盟毛绒玩偶",
-              titleb: "45"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F05%2F31%2F091428.88596502_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "钢铁侠气囊手机支架",
-              titleb: "19"
-            },
-            {
-              src2:
-                "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fgoods%2F2018%2F05%2F09%2F172541.26346787_600X600X1.jpg&width=196&height=196&clipType=4",
-              titlespan: "钢铁侠金属钥匙扣",
-              titleb: "35"
-            }
-          ]
-    };
+ 
+   created() {
+    this.getTopicAvengers();
+  },
+  computed: {
+    ...Vuex.mapState({
+      topicavengers: state => state.Mall.topicavengers
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getTopicAvengers: "Mall/getTopicAvengers"
+    })
   }
 };
 </script>

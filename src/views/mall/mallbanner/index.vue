@@ -2,9 +2,9 @@
   <div id="banner">
     <div class="swiper-container" ref="swiperWrapper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(item,index) in imgs1" :key="index">
-          <a href="javascript:;">
-            <img :src="item">
+        <div class="swiper-slide" v-for="(item,index) in mallscrollimg" :key="index">
+          <a href="javascript:;"> 
+            <img :src="item.image">
           </a>
         </div>
       </div>
@@ -15,17 +15,25 @@
 </template>
 <script>
 import Swiper from "swiper";
+import { async } from 'q';
+import Vuex from 'vuex';
 import "../../../../node_modules/swiper/dist/css/swiper.min.css";
 export default {
-  data() {
-    return {
-      imgs1: [
-        "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F03%2F07%2F112029.98267722.jpg&width=750&height=500&clipType=4",
-        "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F02%2F25%2F112629.57302984.jpg&width=750&height=500&clipType=4",
-        "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F11%2F23%2F102115.67519563.jpg&width=750&height=500&clipType=4",
-        "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2019%2F03%2F04%2F134351.16725003.jpg&width=750&height=500&clipType=4"
-      ]
-    };
+  
+ created(){
+    this.getMallInfo();
+   
+  },
+  computed:{
+    ...Vuex.mapState({
+      mallscrollimg:state=>state.Mall.mallscrollimg
+      
+    })
+  },
+  methods:{
+    ...Vuex.mapActions({
+      getMallInfo:"Mall/getMallInfo"
+    })
   },
   mounted() {
     new Swiper(this.$refs.swiperWrapper, {
