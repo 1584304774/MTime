@@ -1,102 +1,53 @@
 <template>
   <div class="find">
-    <div class="nav">
-      <ul class="table_v_c">
-        <li class="td">
-          <router-link to="/find/news">
-            <span>新闻</span>
-          </router-link>
-        </li>
-        <li class="td">
-          <router-link to="/find/Trailer">
-            <span>预告片</span>
-          </router-link>
-        </li>
-        <li class="td">
-          <router-link to="/find/Ranking List">
-            <span>排行榜</span>
-          </router-link>
-        </li>
-        <li class="td">
-          <router-link to="/find/Film review">
-            <span>影评</span>
-          </router-link>
-        </li>
-      </ul>
-    </div>
-    <router-view></router-view>
+    <FindToggle @handleToggleCom="ClickEvent"></FindToggle>
+    <keep-alive>
+      <component :is="comName"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import Vuex from "vuex";
-
+import FindToggle from "./findtoggle.vue";
+import News from "@/components/news.vue";
+import FilmReview from "@/components/Filmreview.vue";
+import RankingList from "@/components/RankingList.vue";
+import Trailer from "@/components/Trailer.vue";
 export default {
   name: "shop-top",
-  props: {},
-  computed: {
-    ...Vuex.mapState({})
+
+  components: {
+    FindToggle,
+    News,
+    FilmReview,
+    RankingList,
+    Trailer
+  },
+  data() {
+    return {
+      comName: News
+    };
+  },
+  methods: {
+    ClickEvent(index) {
+      switch (index) {
+        case 1:
+          this.comName = "News";
+          break;
+        case 2:
+          this.comName = "Trailer";
+          break;
+        case 3:
+          this.comName = "RankingList";
+          break;
+        case 4:
+          this.comName = "FilmReview";
+          break;
+      }
+    }
   }
 };
 </script>
 
 <style scoped lang="scss">
-@charset "utf-8";
-html {
-  font-size: 26.67vw;
-}
-
-@media all and (max-width: 320px) {
-  body {
-    font-size: 12px;
-  }
-}
-@media all and (min-width: 321px) and (max-width: 375px) {
-  body {
-    font-size: 14px;
-  }
-}
-@media all and (min-width: 376px) {
-  body {
-    font-size: 16px;
-  }
-}
-
-.nav {
-  width: 100%;
-  height: 0.96rem;
-  ul {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  li {
-    height: 100%;
-    width: 25%;
-    float: left;
-    list-style: none;
-    font-weight: 900;
-    .router-link-active {
-      color: #1e7dd7;
-    }
-    a {
-      display: block;
-      height: 100%;
-      width: 100%;
-      text-align: center;
-      line-height: 0.96rem;
-      color: #333;
-
-      span {
-        font-size: 0.31rem;
-      }
-    }
-  }
-
-  h2 {
-    font-size: 0.4rem;
-  }
-}
 </style>

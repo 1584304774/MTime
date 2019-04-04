@@ -1,10 +1,6 @@
 <template>
   <div class="mall_toggle">
-    <!-- <MallStarWar></MallStarWar> -->
-    <!-- <MallAvengers></MallAvengers> -->
-    <!-- <MallLeague></MallLeague> -->
-    <!-- <MallTrans></MallTrans> -->
-    <!-- <MallWarcraft></MallWarcraft> -->
+    
     <keep-alive>
       <component :is="comName"></component>
     </keep-alive>

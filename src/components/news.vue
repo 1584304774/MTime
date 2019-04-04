@@ -3,7 +3,7 @@
     <li class="banner">
       <a href="##" title="2017年SDCC圣地亚哥国际漫展前瞻">
         <img
-          src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F07%2F19%2F103505.79149520.jpg&width=640&height=360&clipType=3"
+          src="https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F07%2F19%2F103505.79149520.jpg&width=640&height=360&clipType=3"
         >
         <h2>
           <b>2017年SDCC圣地亚哥国际漫展前瞻</b>
@@ -41,7 +41,6 @@ export default {
   name: "shop-top",
   created() {
     this.getCityList();
-    console.log(this.movieList)
   },
   methods: {
     ...Vuex.mapActions({
