@@ -1,18 +1,15 @@
 <template>
   <div class="movie">
     <div class="hotmovie">
-      <router-link to="#!/home/hot" class="title">
+      <router-link to="#!/home/hot" class="title" >
         <b>正在热映（45部）</b>
         <i class="iconfont">&#xe632;</i>
       </router-link>
     </div>
     <div class="mpic">
       <ul>
-        <router-link to="#!/movie/261858/" tag="li"  v-for="(itme,index) in moviesInfo">
-          <img
-            :src="itme.img"
-            class="img_box"
-          >
+        <router-link to="#!/movie/261858/" tag="li" v-for="(itme,index) in moviesInfo">
+          <img :src="itme.img" class="img_box">
           <em class="m_score">
             <i>{{itme.r}}</i>
           </em>
@@ -27,29 +24,30 @@
 </template>
 
 <script>
-import Vuex from"vuex";
+import Vuex from "vuex";
 export default {
-    computed: {
-        ...Vuex.mapState({
-            moviesInfo:state=>state.Home.moviesInfo
-        })
-    },
-    created() {
-        this.getActionsMovies()
-    },
-    methods: {
-        ...Vuex.mapActions({
-            getActionsMovies:"Home/getActionsMovies"
-        })
-    },
+  computed: {
+    ...Vuex.mapState({
+      moviesInfo: state => state.Home.moviesInfo
+    })
+  },
+  created() {
+    this.getActionsMovies();
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getActionsMovies: "Home/getActionsMovies"
+    })
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .movie {
-  height:100%;
+  height: 8.1rem;
   width: 100%;
-  
+  overflow: hidden;
+  border-bottom: 2px solid #c3c3c3;
 }
 .hotmovie {
   width: 6.78rem;
@@ -62,7 +60,7 @@ export default {
     display: flex;
     align-items: center;
     b {
-      font-size: 0.45rem;
+      font-size: 0.4rem;
       color: #333;
     }
     i {
@@ -75,13 +73,14 @@ export default {
 }
 .mpic {
   width: 6.78rem;
-//   display: flex;
-//   justify-content: space-between;
+  //   display: flex;
+  //   justify-content: space-between;
   margin: 0 auto;
   text-align: center;
   position: relative;
-  ul>li{
-      float: left;
+  ul > li {
+    float: left;
+    margin-bottom: .2rem;
   }
   .img_box {
     width: 1.56rem;
@@ -105,7 +104,7 @@ export default {
   p {
     width: 1.68rem;
     height: 0.92rem;
-    margin-top: .1rem;
+    margin-top: 0.1rem;
     span {
       font-size: 0.31rem;
     }

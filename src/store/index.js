@@ -7,16 +7,27 @@ import Home from './home/index'
 import Mall from './mall/index'
 >>>>>>> dev
 
+
 Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     Find,
 <<<<<<< HEAD
+<<<<<<< HEAD
     Home
 =======
+=======
+
+>>>>>>> dev
     Home,
+
     Mall,
+<<<<<<< HEAD
     
+>>>>>>> dev
+=======
+
+
 >>>>>>> dev
   }
 })
