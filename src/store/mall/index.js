@@ -67,7 +67,6 @@ export default {
         async getNavigatorIcon({ commit }) {//malllist的内容
             let data = await mallinfo();
             commit("getMutationsNavigatorIcon", data);
-
         },
         async getCellA({ commit }) {//malldeadpol中cellA的内容
             let data = await mallinfo();
@@ -108,6 +107,7 @@ export default {
         async getCategory({ commit }) {//malltoggle中的内容
             let data = await mallinfo();
             commit("getMutationsgetCategory", data)
+            console.log(data);
         },
         async getGoodsList({ commit }) {//mallgoods中的内容
             let data = await mallgoods();

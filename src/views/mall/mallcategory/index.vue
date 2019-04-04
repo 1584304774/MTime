@@ -21,12 +21,12 @@
         >
           <a href="javascript:;">
             <img :src="item1.image">
-            <span>{{item1.title}}</span>
-            <h3>
-              ￥
-              <b></b>
-            </h3>
           </a>
+          <span>{{item1.title}}</span>
+          <h3>
+            ￥
+            <b></b>
+          </h3>
         </div>
       </div>
     </div>
@@ -91,7 +91,7 @@ export default {
   width: 100%;
   height: 7.94rem;
   background: #ffffff;
-margin-bottom: 0.44rem;
+  margin-bottom: 0.44rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -121,6 +121,7 @@ margin-bottom: 0.44rem;
     width: 90%;
     height: 3.64rem;
     border-bottom: 1px solid #ccc;
+    overflow: hidden;
   }
   .mall_category_main_btm {
     width: 100%;
@@ -129,29 +130,35 @@ margin-bottom: 0.44rem;
     align-items: center;
     padding: 0 0.2rem;
     margin-bottom: 0.4rem;
-    .mall_category_main_btm_con a {
+    .mall_category_main_btm_con{
       width: 2.3rem;
-      height: 2.36rem;
+      height: 2.96rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+    }
+    .mall_category_main_btm_con a {
+      width: 2.3rem;
+      height: 2.04rem;
+      
       img {
         width: 2.04rem;
         height: 2.04rem;
       }
-      span {
-       
-        width: 2.4rem;
-        font-size: 0.26rem;
-        color: #333;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        //  overflow: hidden;
-      }
-      h3{
-          color:#f15353;
-      }
+    }
+    span {
+      display: block;
+      width: 2.4rem;
+      height: 0.3rem;
+      font-size: 0.26rem;
+      color: #333;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    h3 {
+      color: #f15353;
     }
   }
 }

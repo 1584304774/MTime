@@ -17,36 +17,12 @@
         </a>
       </li>
     </ul>
-    
+    <h3>奋力加载中...</h3>
   </div>
 </template>
 <script>
 import Vuex from "vuex";
 export default {
-  data() {
-    return {
-      message: [
-        {
-          src:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F01%2F23%2F160221.29036549.jpg&width=294&height=294&clipType=4",
-          des: "自营",
-          title: "环太平洋2 GIPSY马克杯",
-          icon: "新品",
-          back: "#25ACBD",
-          price: "69"
-        },
-        {
-          src:
-            "https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2018%2F01%2F23%2F160221.29036549.jpg&width=294&height=294&clipType=4",
-          des: "自营",
-          title: "环太平洋2 GIPSY马克杯",
-          icon: "新品",
-          back: "#25ACBD",
-          price: "69"
-        }
-      ]
-    };
-  },
   created() {
     this.getGoodsList();
   },
@@ -54,8 +30,8 @@ export default {
     AddBack(val) {
       return "background:" + val;
     },
-    GetNum(val){
-        return val/100;
+    GetNum(val) {
+      return val / 100;
     }
   },
   computed: {
@@ -73,7 +49,10 @@ export default {
 <style lang="scss" scoped>
 .mall_goods {
   background: #f6f6f6;
-
+ul{
+ width: 100%;
+ height: 24rem;
+}
   h2 {
     width: 100%;
     text-align: center;
@@ -81,14 +60,25 @@ export default {
     color: #999;
     margin-bottom: 0.2rem;
   }
-  ul li {
+  h3 {
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    background: #f6f6f6;
+    font-size: 0.36rem;
+    color: #777;
+  }
+  
+  li {
     width: 3.55rem;
     height: 4.8rem;
     background: #ffffff;
 
     float: left;
+    margin-left: 0.15rem;
   }
-  ul li a {
+  li a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
