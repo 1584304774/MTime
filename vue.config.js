@@ -7,7 +7,13 @@ module.exports = {//跨域配置项，使用的是中间件http-proxy-middleware
                 pathRewrite:{
                     "^/abc":""
                 }
+            },
+            "/api":{
+                target:'https://ticket-m.mtime.cn',//需要跨域的路径
+                changeOrigin:true//是否可以跨域     
             }
         }
     }
 }
+
+
