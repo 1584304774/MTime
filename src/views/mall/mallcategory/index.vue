@@ -25,7 +25,7 @@
           <span>{{item1.title}}</span>
           <h3>
             ￥
-            <b></b>
+            <b>480</b>
           </h3>
         </div>
       </div>

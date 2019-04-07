@@ -14,7 +14,7 @@
               <span>{{item.title}}</span>
               <em>
                 ￥
-                <b></b>
+                <b>89</b>
               </em>
             </a>
           </li>
@@ -112,7 +112,6 @@ export default {
         em {
           font-size: 0.28rem;
           font-style: normal;
-          // font-weight: 900;
           color: #f15353;
           b {
             font-size: 0.36rem;

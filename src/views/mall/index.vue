@@ -1,12 +1,25 @@
 <template>
   <div class="mall">
     <MallTop></MallTop>
-    <MallBanner></MallBanner>
-    <MallList></MallList>
-    <MallDeadPol></MallDeadPol>
-    <MallToggle></MallToggle>
-    <MallCategory></MallCategory>
-    <MallGoods></MallGoods>
+    <keep-alive>
+      <MallBanner></MallBanner>
+    </keep-alive>
+    <keep-alive>
+      <MallList></MallList>
+    </keep-alive>
+    <keep-alive>
+      <MallDeadPol></MallDeadPol>
+    </keep-alive>
+
+    <keep-alive>
+      <MallToggle></MallToggle>
+    </keep-alive>
+    <keep-alive>
+      <MallCategory></MallCategory>
+    </keep-alive>
+    <keep-alive>
+      <MallGoods></MallGoods>
+    </keep-alive>
   </div>
 </template>
 <script>

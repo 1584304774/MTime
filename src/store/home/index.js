@@ -20,12 +20,10 @@ export default {
         async getActionsMovies ({commit}){
             let data = await home()
             commit("getMutationsMovies",data)
-           // console.log(data)
         },
         async getActionsList ({commit}){
             let res = await homeMovie()
             commit("getActionsList",res)
-            console.log(res)
         }
     },
     namespaced: true

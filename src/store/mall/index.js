@@ -1,4 +1,4 @@
-import { mallinfo,mallgoods } from '@/api/mall/index.js';
+import { mallinfo, mallgoods } from '@/api/mall/index.js';
 export default {
     state: {
         mallscrollimg: [],
@@ -13,7 +13,7 @@ export default {
         topicLeague: [],
         topicsmall: [],
         category: [],
-        goodsList:[]
+        goodsList: []
     },
     mutations: {
         getMutationsMallInfo(state, params) {
@@ -52,10 +52,10 @@ export default {
             }
 
         },
-        getMutationsgetCategory(state,params){
+        getMutationsgetCategory(state, params) {
             state.category = params.category;
         },
-        getMutationsGoodsList(state,params){
+        getMutationsGoodsList(state, params) {
             state.goodsList = params.goodsList;
         }
     },
@@ -107,12 +107,12 @@ export default {
         async getCategory({ commit }) {//malltoggle中的内容
             let data = await mallinfo();
             commit("getMutationsgetCategory", data)
-            console.log(data);
+
         },
         async getGoodsList({ commit }) {//mallgoods中的内容
             let data = await mallgoods();
             commit("getMutationsGoodsList", data);
-            console.log(data);
+
         }
     },
 

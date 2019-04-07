@@ -4,3 +4,4 @@ export const list = ()=>http("get","/api/Service/callback.mi/Showtime/LocationMo
 
 export const getCityList = ()=>http("get",'/api/Service/callback.mi/News/NewsList.api?t=20194221214773912&pageIndex=1') 
 
+export const getFindTitle = ()=>http("get","/api/Service/callback.mi/PageSubArea/GetRecommendationIndexInfo.api?t=2019461327726879")

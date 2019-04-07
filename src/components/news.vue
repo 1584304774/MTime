@@ -3,10 +3,10 @@
     <li class="banner">
       <a href="##" title="2017年SDCC圣地亚哥国际漫展前瞻">
         <img
-          src="https://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmg%2F2017%2F07%2F19%2F103505.79149520.jpg&width=640&height=360&clipType=3"
+          :src="FindNewsTitle.imageUrl"
         >
         <h2>
-          <b>2017年SDCC圣地亚哥国际漫展前瞻</b>
+          <b>{{FindNewsTitle.title}}</b>
         </h2>
       </a>
     </li>
@@ -25,8 +25,8 @@
           <dl>
             <dt>{{item.title}}</dt>
             <dd>
-              <time>10小时前</time>
-              <b>评论 2</b>
+              <time>9小时前</time>
+              <b>评论{{item.commentCount}}</b>
             </dd>
           </dl>
         </div>
@@ -41,17 +41,26 @@ export default {
   name: "shop-top",
   created() {
     this.getCityList();
+    this.getActionsFindNewsTitle();
+  },
+  
+  computed: {
+    ...Vuex.mapState({
+      movieList: state => state.Find.movieList
+    }),
+    ...Vuex.mapState({
+      FindNewsTitle:state=>state.Find.FindNewsTitle
+    })
   },
   methods: {
     ...Vuex.mapActions({
       getCityList: "Find/getActionsCityList"
+    }),
+     ...Vuex.mapActions({
+      getActionsFindNewsTitle:'Find/getActionsFindNewsTitle'
     })
   },
-  computed: {
-    ...Vuex.mapState({
-      movieList: state => state.Find.movieList
-    })
-  }
+  
 };
 </script>
 
