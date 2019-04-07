@@ -21,8 +21,7 @@
 <script>
 import Vuex from "vuex";
 export default {
-  created() {
-    
+  created() {    
       this.getCellA();
       this.getCellB();
       this.getCellC();

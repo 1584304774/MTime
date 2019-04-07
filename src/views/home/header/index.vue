@@ -56,7 +56,7 @@ export default {};
   justify-content: space-between;
   align-items: center;
   padding: 0 0.25rem;
-  width: 100%;
+ 
   height: 1.08rem;
   position: absolute;
   top: 2.35rem;

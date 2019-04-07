@@ -1,12 +1,20 @@
 import {
     getCityList,
-    getFindTitle
+    getFindTitle,
+    getTrailerList,
+    getTopList,
+    getReviewList
 } from '@/api/api.js'
 export default {
     state: {
         movieList: [],
         FindNewsTitle:"",
-        FindTrailerTitle:""
+        FindTrailerTitle:"",
+        trailerList:[],
+        FindRankingTitle:"",
+        rankingList:[],
+        FindReviewTitle:"",
+        reviewList:[]
     },
     mutations: {
         getMutationsCityList(state, params) {
@@ -17,7 +25,21 @@ export default {
         },
         getMutationsFindTrailerTitle(state,params){
             state.FindTrailerTitle = params;
-            console.log(state.FindTrailerTitle);
+        },
+        getMutationsTrailerList(state,params){
+            state.trailerList = params;
+        },
+        getMutationsFindRankingTitle(state,params){
+            state.FindRankingTitle = params;
+        },
+        getMutationsRankingList(state,params){
+            state.rankingList = params;
+        },
+        getMutationsFindReviewTitle(state,params){
+            state.FindReviewTitle = params;
+        },
+        getMutationsReviewList(state,params){
+            state.reviewList = params;
         }
     },
     actions: {
@@ -32,8 +54,27 @@ export default {
         async getActionsFindTrailerTitle({commit}){
             let data = await getFindTitle();
             commit("getMutationsFindTrailerTitle",data.trailer);
+        },
+        async getActionsTrailerList({commit}){
+            let data = await getTrailerList();
+            commit("getMutationsTrailerList",data.trailers);
+        },
+        async getActionsFindRankingTitle({commit}){
+            let data = await getFindTitle();
+            commit("getMutationsFindRankingTitle",data.topList);
+        },
+        async getActionsRankingList({commit}){
+            let data = await getTopList();
+            commit("getMutationsRankingList",data.topLists);
+        },
+        async getActionsFindReviewTitle({commit}){
+            let data = await getFindTitle();
+            commit("getMutationsFindReviewTitle",data.review);
+        },
+        async getActionsReviewList({commit}){
+            let data = await getReviewList();
+            commit("getMutationsReviewList",data);
         }
-
     },
     namespaced: true
 }

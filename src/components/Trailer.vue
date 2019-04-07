@@ -1,11 +1,17 @@
 <template>
   <div class="second">
     <div class="second_top">
-      <!-- <video controls>
-        <source :src="FindTrailerTitle.mp4Url" type="video/mp4">
-      </video> -->
       <img :src="FindTrailerTitle.mp4Url" :alt="FindTrailerTitle.title">
       <h2>{{FindTrailerTitle.title}}</h2>
+    </div>
+    <div class="second_main">
+      <li v-for="(item,index) in trailerList" :key="index">
+        <img :src="item.coverImg">
+        <span>
+          <b>{{item.movieName}}</b>
+          <em>{{item.summary}}</em>
+        </span>
+      </li>
     </div>
   </div>
 </template>
@@ -16,15 +22,22 @@ export default {
   name: "shop-second",
   created() {
     this.getActionsFindTrailerTitle();
+    this.getActionsTrailerList();
   },
   computed: {
     ...Vuex.mapState({
       FindTrailerTitle: state => state.Find.FindTrailerTitle
+    }),
+    ...Vuex.mapState({
+      trailerList:state=>state.Find.trailerList
     })
   },
   methods: {
     ...Vuex.mapActions({
       getActionsFindTrailerTitle: "Find/getActionsFindTrailerTitle"
+    }),
+    ...Vuex.mapActions({
+      getActionsTrailerList:"Find/getActionsTrailerList"
     })
   }
 };
@@ -51,6 +64,32 @@ export default {
     bottom: 0;
     left: 0;
     z-index: 10;
+  }
+}
+.second_main{
+  li{
+    width: 100%;
+    height: 2.66rem;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    img{
+      width: 3rem;
+      height: 1.82rem;
+      display: block;
+    }
+    span{
+      b{
+        font-size: 0.36rem;
+        color: #333;
+      }
+      em{
+        font-size: 0.3rem;
+        color: #999;
+      }
+    }
   }
 }
 </style>
