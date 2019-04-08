@@ -9,14 +9,14 @@
         <h3>{{topicstarwar.titleCn}}</h3>
         <ul>
           <li v-for="(item,index) in topicstarwar.subList" :key="index">
-            <a href="JavaScript:;">
+            <router-link tag="p" to="/detail" @click.native="ClickEvent(item.goodsId)">
               <img :src="item.image">
               <span>{{item.title}}</span>
               <em>
                 ￥
                 <b>69</b>
               </em>
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -34,6 +34,7 @@ import Vuex from "vuex";
 export default {
   created() {
     this.getTopicStarWar();
+    
   },
   computed: {
     ...Vuex.mapState({
@@ -42,8 +43,12 @@ export default {
   },
   methods: {
     ...Vuex.mapActions({
-      getTopicStarWar: "Mall/getTopicStarWar"
-    })
+      getTopicStarWar: "Mall/getTopicStarWar",
+      getId:"Mall/getId"
+    }),
+    ClickEvent(params){
+      this.getId(params);
+    }
   }
 };
 </script>
@@ -91,7 +96,7 @@ export default {
       float: left;
       margin-top: 0.15rem;
       margin-left: 0.1rem;
-      a {
+      p {
         display: flex;
         flex-direction: column;
         justify-content: space-between;

@@ -35,34 +35,7 @@
 <script>
 import Vuex from "vuex";
 export default {
-  data() {
-    return {
-      message: [
-        {
-          title: "玩具模型",
-          color: "#FFB90F",
-          bigimg: "http://img5.mtime.cn/mg/2019/01/29/143155.27564363.jpg",
-          smallinfo: [
-            {
-              smallimg:
-                "http://img5.mtime.cn/goods/2018/04/17/183237.46844877_600X600X1.jpg",
-              des: "HT钢铁蜘蛛COSBABY人偶"
-            },
-            {
-              smallimg:
-                "http://img5.mtime.cn/goods/2017/06/16/173416.65853121_600X600X1.jpg",
-              des: "HT神奇女侠1:6比例珍藏人偶"
-            },
-            {
-              smallimg:
-                "http://img5.mtime.cn/goods/2017/08/11/185646.84580015_600X600X1.jpg",
-              des: "魔兽 杜隆坦4.25英寸可动人偶"
-            }
-          ]
-        }
-      ]
-    };
-  },
+
   filters: {
     AddColor(val) {
       return "color:" + val;

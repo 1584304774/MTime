@@ -1,6 +1,6 @@
 <template>
   <div class="mall_list">
-    <a href="javascript:;" v-for="(item,index) in navigatorIcon" :key="index">
+    <a :href="item.url" v-for="(item,index) in navigatorIcon" :key="index">
         <img :src="item.image">
         <em>{{item.iconTitle}}</em>
     </a>

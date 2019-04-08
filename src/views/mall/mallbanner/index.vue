@@ -3,7 +3,7 @@
     <div class="swiper-container" ref="swiperWrapper">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item,index) in mallscrollimg" :key="index">
-          <a href="javascript:;">
+          <a :href="item.url">
             <img :src="item.image">
           </a>
         </div>

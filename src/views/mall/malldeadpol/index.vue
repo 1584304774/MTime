@@ -1,18 +1,18 @@
 <template>
   <div class="mall_deadpol">
     <div class="mall_deadpol1">
-      <a href="javascript:;">
+      <a :href="cellA.url">
         <img :src="cellA.img">
       </a>
     </div>
     <div class="mall_deadpol2" v-for="(item,index) in cellC" :key="index">
-      <a href="javascript:;">
+      <a :href="item.url">
         <img :src="item.image">
       </a>
     </div>
 
     <div class="mall_deadpol4">
-      <a href="javascript:;">
+      <a :href="cellB.url">
         <img :src="cellB.img">
       </a>
     </div>

@@ -13,7 +13,8 @@ export default {
         topicLeague: [],
         topicsmall: [],
         category: [],
-        goodsList: []
+        goodsList: [],
+        detail:[]
     },
     mutations: {
         getMutationsMallInfo(state, params) {
@@ -33,6 +34,7 @@ export default {
         },
         getMutationsTopicStarWar(state, params) {
             state.topicstarwar = params.topic[0];
+            console.log(state.topicstarwar);
         },
         getMutationsTopicAvengers(state, params) {
             state.topicavengers = params.topic[1];
@@ -57,18 +59,20 @@ export default {
         },
         getMutationsGoodsList(state, params) {
             state.goodsList = params.goodsList;
+        },
+        getMutationsId(state,params){
+            state.detail = params;
+            console.log( state.detail);
         }
     },
     actions: {
         async getMallInfo({ commit }) {
             let data = await mallinfo();
             commit("getMutationsMallInfo", data)//轮播图的图片
-            console.log(data);
         },
         async getNavigatorIcon({ commit }) {//malllist的内容
             let data = await mallinfo();
             commit("getMutationsNavigatorIcon", data);
-            console.log(data)
         },
         async getCellA({ commit }) {//malldeadpol中cellA的内容
             let data = await mallinfo();
@@ -85,6 +89,9 @@ export default {
         async getTopicStarWar({ commit }) {//malltoggle中的内容
             let data = await mallinfo();
             commit("getMutationsTopicStarWar", data);
+        },
+        getId({commit},params){
+            commit("getMutationsId",params);
         },
         async getTopicAvengers({ commit }) {//malltoggle中的内容
             let data = await mallinfo();
@@ -114,7 +121,6 @@ export default {
         async getGoodsList({ commit }) {//mallgoods中的内容
             let data = await mallgoods();
             commit("getMutationsGoodsList", data);
-
         }
     },
 

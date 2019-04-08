@@ -34,6 +34,10 @@ export default new Router({
   {
     path: '*',
     redirect: '/home'
+  },
+  {
+    path:"/detail",
+    component:()=>import("@/views/mall/malldetail/index.vue")
   }
 
   ]
