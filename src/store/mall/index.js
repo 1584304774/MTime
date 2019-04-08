@@ -63,10 +63,12 @@ export default {
         async getMallInfo({ commit }) {
             let data = await mallinfo();
             commit("getMutationsMallInfo", data)//轮播图的图片
+            console.log(data);
         },
         async getNavigatorIcon({ commit }) {//malllist的内容
             let data = await mallinfo();
             commit("getMutationsNavigatorIcon", data);
+            console.log(data)
         },
         async getCellA({ commit }) {//malldeadpol中cellA的内容
             let data = await mallinfo();
