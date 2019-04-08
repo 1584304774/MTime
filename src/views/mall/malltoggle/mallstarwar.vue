@@ -9,7 +9,7 @@
         <h3>{{topicstarwar.titleCn}}</h3>
         <ul>
           <li v-for="(item,index) in topicstarwar.subList" :key="index">
-            <router-link tag="p" to="/detail" @click.native="ClickEvent(item.goodsId)">
+            <router-link tag="p" to="/malldetail" @click.native="ClickEvent(item.goodsId)">
               <img :src="item.image">
               <span>{{item.title}}</span>
               <em>
@@ -33,8 +33,7 @@
 import Vuex from "vuex";
 export default {
   created() {
-    this.getTopicStarWar();
-    
+    this.getTopicStarWar(); 
   },
   computed: {
     ...Vuex.mapState({

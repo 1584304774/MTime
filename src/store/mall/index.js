@@ -1,4 +1,4 @@
-import { mallinfo, mallgoods } from '@/api/mall/index.js';
+import { mallinfo, mallgoods,malldetail,malldetailimg } from '@/api/mall/index.js';
 export default {
     state: {
         mallscrollimg: [],
@@ -14,7 +14,9 @@ export default {
         topicsmall: [],
         category: [],
         goodsList: [],
-        detail:[]
+        malldetail:0,
+        mallgoodsdetail:[],
+        mallgoodsdetailimg:[]
     },
     mutations: {
         getMutationsMallInfo(state, params) {
@@ -34,7 +36,6 @@ export default {
         },
         getMutationsTopicStarWar(state, params) {
             state.topicstarwar = params.topic[0];
-            console.log(state.topicstarwar);
         },
         getMutationsTopicAvengers(state, params) {
             state.topicavengers = params.topic[1];
@@ -52,7 +53,6 @@ export default {
             for (var i = 0; i < params.topic.length; i++) {
                 state.topicsmall.push(params.topic[i].checkedImage);
             }
-
         },
         getMutationsgetCategory(state, params) {
             state.category = params.category;
@@ -61,8 +61,14 @@ export default {
             state.goodsList = params.goodsList;
         },
         getMutationsId(state,params){
-            state.detail = params;
-            console.log( state.detail);
+            state.malldetail = params;
+        },
+        getMutationsMallGoodsDetail(state,params){
+            state.mallgoodsdetail = params.data.productDetail.goods;
+        },
+        getMutationsMallGoodsDetailImg(state,params){
+            state.mallgoodsdetailimg = params.contentList;
+            console.log(state.mallgoodsdetailimg);
         }
     },
     actions: {
@@ -121,6 +127,14 @@ export default {
         async getGoodsList({ commit }) {//mallgoods中的内容
             let data = await mallgoods();
             commit("getMutationsGoodsList", data);
+        },
+        async getMallGoodsDetail({commit},id){
+            let data = await malldetail(id);
+            commit("getMutationsMallGoodsDetail",data);
+        },
+        async getMallGoodsDetailImg({commit},id){
+            let data = await malldetailimg(id);
+            commit("getMutationsMallGoodsDetailImg",data);
         }
     },
 
