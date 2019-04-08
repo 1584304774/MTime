@@ -17,7 +17,7 @@ export default {
     Header,
     Hotmovie,
     Upcoming,
-    Consulting
+    Consulting,
   }
 }
 </script>
