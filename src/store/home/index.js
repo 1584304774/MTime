@@ -1,12 +1,15 @@
 import {
     home,
-    homeMovie
+    homeMovie,
+    homedetail
 } from "@/api/home/api.js"
 
 export default {
     state: {
         moviesInfo : [],
-        moviesList : []
+        moviesList : [],
+        hotdetail:0,
+        hotdetailList:[]
     },
     mutations: {
         getMutationsMovies(state,params){
@@ -14,6 +17,13 @@ export default {
         },
         getActionsList(state,params){
             state.moviesList = params.hotPoints
+        },
+        getMutationsId(state,params){
+            state.hotdetail = params;
+        },
+        getMutationHotDetailList(state,params){
+            state.hotdetailList = params;
+           console.log(state.hotdetailList);
         }
     },
     actions: {
@@ -24,6 +34,13 @@ export default {
         async getActionsList ({commit}){
             let res = await homeMovie()
             commit("getActionsList",res)
+        },
+        getId({commit},params){
+            commit("getMutationsId",params);
+        },
+        async getHotDetialList({commit},id){
+            let data = await homedetail(id);
+            commit("getMutationHotDetailList",data);
         }
     },
     namespaced: true

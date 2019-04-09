@@ -25,6 +25,10 @@ export default new Router({
     {
       path: "/malldetail",
       component: () => import("@/views/mall/malldetail/index.vue")
+    },
+    {
+      path:"/hotdetail",
+      component:()=>import("@/views/home/hotdetail/index.vue")
     }
 
   ]

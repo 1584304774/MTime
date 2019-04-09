@@ -8,7 +8,7 @@
     </div>
     <div class="mpic">
       <ul>
-        <router-link to="#!/movie/261858/" tag="li" v-for="(itme,index) in moviesInfo">
+        <router-link to="/hotdetail" tag="li" v-for="(itme,index) in moviesInfo" :key="index" @click.native="ClickEvent(itme.movieId)">
           <img :src="itme.img" class="img_box">
           <em class="m_score">
             <i>{{itme.r}}</i>
@@ -36,8 +36,12 @@ export default {
   },
   methods: {
     ...Vuex.mapActions({
-      getActionsMovies: "Home/getActionsMovies"
-    })
+      getActionsMovies: "Home/getActionsMovies",
+      getId:"Home/getId"
+    }),
+    ClickEvent(params){
+      this.getId(params);
+    }
   }
 };
 </script>
