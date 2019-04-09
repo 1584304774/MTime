@@ -1,6 +1,9 @@
 <template>
     <div class="purchaseinfo">
-        <h2>Purchaseinfo</h2>
+        <h2>退货政策</h2>
+        <p>
+            <span></span>
+        </p>
     </div>
 </template>
 <script>

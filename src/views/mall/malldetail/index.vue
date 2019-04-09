@@ -82,7 +82,7 @@ export default {
       getMallGoodsDetail: "Mall/getMallGoodsDetail",
     }),
     BackTo() {
-      this.$router.back();
+      this.$router.push("/mall");
     },
     ClickEvent(index) {
       switch (index) {

@@ -22,4 +22,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.graphic_details{
+  border: 1px solid #ccc;
+}
 </style>
