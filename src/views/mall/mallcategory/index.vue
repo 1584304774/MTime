@@ -19,9 +19,9 @@
           v-for="(item1,index1) in item.subList"
           :key="index1"
         >
-          <a href="javascript:;">
+         <router-link tag="p" to="/malldetail" @click.native="ClickEvent(item1.goodsId)">
             <img :src="item1.image">
-          </a>
+         </router-link>
           <span>{{item1.title}}</span>
           <h3>
             ￥
@@ -54,8 +54,12 @@ export default {
   },
   methods: {
     ...Vuex.mapActions({
-      getCategory: "Mall/getCategory"
-    })
+      getCategory: "Mall/getCategory",
+      getId:"Mall/getId"
+    }),
+    ClickEvent(params){
+      this.getId(params);
+    }
   }
 };
 </script>
@@ -111,7 +115,7 @@ export default {
       justify-content: space-between;
       align-items: center;
     }
-    .mall_category_main_btm_con a {
+    .mall_category_main_btm_con p {
       width: 2.3rem;
       height: 2.04rem;
       

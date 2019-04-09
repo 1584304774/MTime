@@ -139,7 +139,7 @@ export default {
         color: #ff8600;
         border: 1px solid #ff8600;
         font-size: 0.24rem;
-        padding-left: 0.15rem;
+        margin-left: 0.15rem;
       }
       em {
         font-weight: 900;

@@ -3,7 +3,7 @@
     <h2>一 你可能感兴趣的 一</h2>
     <ul>
       <li v-for="(item,index) in goodsList" :key="index">
-        <a href="javascript:;">
+        <router-link tag="p" to="/malldetail" @click.native="ClickEvent(item.goodsId)">
           <img :src="item.image">
           <h4>
             <i>{{item.goodsTip}}</i>
@@ -14,7 +14,7 @@
             <b>{{item.minSalePrice | GetNum()}}</b>
           </h5>
           <h2 :style="item.background | AddBack()">{{item.iconText}}</h2>
-        </a>
+        </router-link>
       </li>
     </ul>
     <h3>奋力加载中...</h3>
@@ -41,8 +41,12 @@ export default {
   },
   methods: {
     ...Vuex.mapActions({
-      getGoodsList: "Mall/getGoodsList"
-    })
+      getGoodsList: "Mall/getGoodsList",
+      getId:"Mall/getId"
+    }),
+    ClickEvent(params){
+      this.getId(params);
+    }
   }
 };
 </script>
@@ -78,7 +82,7 @@ ul{
     float: left;
     margin-left: 0.15rem;
   }
-  li a {
+  li p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
