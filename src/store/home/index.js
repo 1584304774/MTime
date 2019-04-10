@@ -1,12 +1,14 @@
 import {
     home,
-    homeMovie
+    homeMovie,
+    homeHot
 } from "@/api/home/api.js"
 
 export default {
     state: {
         moviesInfo : [],
-        moviesList : []
+        moviesList : [],
+        moviesHot : [],
     },
     mutations: {
         getMutationsMovies(state,params){
@@ -14,6 +16,9 @@ export default {
         },
         getActionsList(state,params){
             state.moviesList = params.hotPoints
+        },
+        getActionsHot(state,params){
+            state.moviesHot = params.ms
         }
     },
     actions: {
@@ -24,6 +29,11 @@ export default {
         async getActionsList ({commit}){
             let res = await homeMovie()
             commit("getActionsList",res)
+        },
+        async getActionsHot ({commit}){
+            let data = await homeHot()
+            commit("getActionsHot",data)
+            console.log(data);
         }
     },
     namespaced: true

@@ -13,4 +13,5 @@ export const home = () => http("get", "/Service/callback.mi/Showtime/LocationMov
 //export const home = ()=>http("get","/api/Service/callback.mi/Showtime/LocationMovies.api?locationId=290&t=2019431225492383")
 
 export const homeMovie = ()=>http("get","/Service/callback.mi/PageSubArea/GetFirstPageAdvAndNews.api?t=2019449455286677")
+export const homeHot = ()=>http("get","/Service/callback.mi/Showtime/LocationMovies.api?locationId=290&t=20194922435871346")
 
