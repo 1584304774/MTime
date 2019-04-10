@@ -5,6 +5,7 @@ import ticket from "./ticket";
 import find from "./find";
 import mall from "./mall";
 import mine from "./mine";
+import hot from "./hot";
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +19,7 @@ export default new Router({
     find,
     mall,
     mine,
+    hot,
     {
       path: "*",
       redirect: "/home"

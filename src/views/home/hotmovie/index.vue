@@ -1,7 +1,7 @@
 <template>
   <div class="movie">
     <div class="hotmovie">
-      <router-link to="#!/home/hot" class="title" >
+      <router-link to="/hot" class="title" >
         <b>正在热映（45部）</b>
         <i class="iconfont">&#xe632;</i>
       </router-link>
